@@ -22,7 +22,7 @@ public class PartenaireController {
 	@GetMapping("/deletePartenaire/{id}")
 	public ModelAndView deletePartenaire(@PathVariable("id") final Long id) {
 		partenaireService.deletePartenaire(id);
-		return new ModelAndView("redirect:/");
+		return new ModelAndView("redirect:/partenaires");
 	}
 
 	

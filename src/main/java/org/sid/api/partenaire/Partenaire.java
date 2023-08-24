@@ -19,23 +19,6 @@ import lombok.ToString;
 @Table(name = "partenaires")
 public class Partenaire {
 
-	 Partenaire() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public Partenaire(Long id, String nom, String numero_siret, String date_contrat, String adresse_mail, String siege_social,
-			String secteur_activite) {
-		super();
-		this.id = id;
-		this.nom = nom;
-		this.numero_siret = numero_siret;
-		this.date_contrat = date_contrat;
-		this.adresse_mail = adresse_mail;
-		this.siege_social = siege_social;
-		this.secteur_activite = secteur_activite;
-	}
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
