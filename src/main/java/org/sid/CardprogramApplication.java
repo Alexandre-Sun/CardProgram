@@ -25,9 +25,6 @@ public class CardprogramApplication {
 	@Autowired
 	PartenaireRepository partenaireRepository;
 
-	@Autowired
-	private PartenaireService partenaireService;
-
 	@RequestMapping("/template.html")
 	public String template() {
 
@@ -40,39 +37,37 @@ public class CardprogramApplication {
 		return "index";
 	}
 
-	@RequestMapping("/fichePartenaire.html")
+	@RequestMapping("/fichePartenaire")
 	public String fichePartenaire() {
 
 		return "partenaires/fichePartenaire";
 	}
 
-	@RequestMapping("/index.html")
+	@RequestMapping("/index")
 	public String indexhtml() {
 
 		return "index";
 	}
 
-	@RequestMapping("/contact.html")
+	@RequestMapping("/contact")
 	public String contact() {
 
 		return "contact";
 	}
 
-	@RequestMapping("/informationsPersonnelles.html")
+	@RequestMapping("/informationsPersonnelles")
 	public String informationsPersonnelles() {
 
 		return "informationsPersonnelles";
 	}
 
-	@RequestMapping("/bin.html")
+	@RequestMapping("/bin")
 	public String bin() {
 
 		return "bin";
 	}
 
-	
-
-	@RequestMapping("/partenaires.html")
+	@RequestMapping("/partenaires")
 	public String partenaires(Model model) {
 
 		Iterable<Partenaire> listPartenaires = partenaireRepository.findAll();
@@ -80,21 +75,8 @@ public class CardprogramApplication {
 
 		return "partenaires/partenaires";
 	}
-	
-	@RequestMapping("/createPartenaire")
-	public String formulairePartenaire() {
 
-		return "partenaires/formulairePartenaire";
-	}
-	
-	@PostMapping("/savePartenaire")
-	public String savePartenaire(@RequestParam String nom) {
-	
-		Partenaire partenaire = new Partenaire(null, null, null, null, null, null, null);
-		partenaire.setNom(nom);
-		partenaireService.savePartenaire(partenaire);
-		return ("partenaires/partenaires");
-	}
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(CardprogramApplication.class, args);
