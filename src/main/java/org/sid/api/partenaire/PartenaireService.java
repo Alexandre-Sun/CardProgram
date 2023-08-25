@@ -13,22 +13,23 @@ public class PartenaireService {
 
 	@Autowired
 	private PartenaireRepository partenaireRepository;
-	
-	public Optional<Partenaire> getPartenaire(final Long id){
+
+	public Optional<Partenaire> getPartenaire(final Long id) {
 		return partenaireRepository.findById(id);
 	}
-	
-	public Iterable<Partenaire> getPartenaires(){
+
+	public Iterable<Partenaire> getPartenaires() {
 		return partenaireRepository.findAll();
 	}
-	
-	public void deletePartenaire(final Long id) {
+
+	public String deletePartenaire(final Long id) {
 		partenaireRepository.deleteById(id);
+		return "partenaires/fichePartenaire";
 	}
-	
-	public Partenaire savePartenaire(Partenaire partenaire) {
-		Partenaire savedPartenaire = partenaireRepository.save(partenaire);
-		return savedPartenaire;
+
+	public void savePartenaire(Partenaire partenaire) {
+		partenaireRepository.save(partenaire);
+		
 	}
-	
+
 }
