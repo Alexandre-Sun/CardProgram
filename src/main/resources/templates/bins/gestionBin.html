@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="template.html">
+
+<head>
+	<meta charset="utf-8">
+	<title>Gestion Bin</title>
+</head>
+
+<body>
+	<main>
+		<div layout:fragment="content">
+			<!--Contenu-->
+
+			<Center><h2>Gestion Bin</h2></Center>
+
+			<table class="table table-bordered">
+								<thead>
+									<th colspan="8">
+										<CENTER>BIN 1234567</CENTER>
+									</th>
+									<tr>
+										<th scope="col">BIN 8 POS</th>
+										<th scope="col">PARTENAIRE</th>
+										<th scope="col">STATUS</th>
+										<th scope="col">PAN RANGE</th>
+										<th scope="col">VOLUME</th>
+										<th scope="col">PAYS/REGION</th>
+										<th scope="col">P/V</th>
+										<th scope="col">MONNAIE</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="bin: ${listBins}" th:if="${bin.funding_source == 'Débit Immédiat'}">
+										<td><span th:text="${bin.bin8}"></td>
+										<td><input></td> 
+										<td><span th:text="${bin.status}"></td>
+										<td><span th:text="${bin.pan_range_debut} +' - '+${bin.pan_range_fin}"></td>
+										<td><span th:text="${bin.volume}"></td>
+										<td><span th:text="${bin.pays} +' , '+ ${bin.region}"></td>
+										<td><span th:text="${bin.p_v_c}"></td>
+										<td><span th:text="${bin.compte}"></td>
+									</tr>
+
+
+								</tbody>
+							</table>
+
+				<button type="button" role="button" class="btn btn-outline-warning"> <a href="#">Enregistrer</a></button>
+
+			<!--Fin de Contenu-->
+		</div>
+	</main>
+</body>
+
+</html>
+</head>

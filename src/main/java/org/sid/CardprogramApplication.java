@@ -1,19 +1,17 @@
 package org.sid;
 
+import org.sid.api.bin.Bin;
+import org.sid.api.bin.BinRepository;
+import org.sid.api.bin.BinService;
 import org.sid.api.partenaire.Partenaire;
 import org.sid.api.partenaire.PartenaireRepository;
-import org.sid.api.partenaire.PartenaireService;
 import org.sid.api.utilisateur.UtilisateurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @SpringBootApplication
 @Controller
@@ -24,6 +22,12 @@ public class CardprogramApplication {
 
 	@Autowired
 	PartenaireRepository partenaireRepository;
+	
+	@Autowired
+	BinRepository binRepository;
+	
+	@Autowired
+	private BinService binService;
 
 	@RequestMapping("/template.html")
 	public String template() {
@@ -48,6 +52,23 @@ public class CardprogramApplication {
 
 		return "index";
 	}
+	
+	@RequestMapping("/bin")
+	public String bin(Model model) {
+
+		Iterable<Bin> listBins = binRepository.findAll();
+		model.addAttribute("listBins", listBins);	
+		
+		
+		
+		return "bins/bin";
+	}
+	
+	@RequestMapping("/gestionBin")
+	public String gestionBin() {
+
+		return "bins/gestionBin";
+	}
 
 	@RequestMapping("/contact")
 	public String contact() {
@@ -61,11 +82,7 @@ public class CardprogramApplication {
 		return "informationsPersonnelles";
 	}
 
-	@RequestMapping("/bin")
-	public String bin() {
-
-		return "bin";
-	}
+	
 
 	@RequestMapping("/partenaires")
 	public String partenaires(Model model) {

@@ -15,7 +15,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@Table(name = "bin")
+@Table(name = "bins")
 public class Bin {
 		
 	//BIN
@@ -23,13 +23,16 @@ public class Bin {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String emetteur_banque;
+	private String code_banque;
 	private String bin8;
-	private String pan_range;
+	private String pan_range_debut;
+	private String pan_range_fin;
 	private String status;
+	private String volume;
 
 
 	//CARD PROGRAM
-	private String région;
+	private String region;
 	private String pays;
 	private String compte;
 	
@@ -37,7 +40,14 @@ public class Bin {
 	private String platform;
 	private String funding_source;
 	private String p_v_c;
+	private String partenaire;
 	
+	public String getPartenaire() {
+		return partenaire;
+	}
+	public void setPartenaire(String partenaire) {
+		this.partenaire = partenaire;
+	}
 	public Long getId() {
 		return id;
 	}
@@ -50,17 +60,29 @@ public class Bin {
 	public void setEmetteur_banque(String emetteur_banque) {
 		this.emetteur_banque = emetteur_banque;
 	}
+	public String getCode_banque() {
+		return code_banque;
+	}
+	public void setCode_banque(String code_banque) {
+		this.code_banque = code_banque;
+	}
 	public String getBin8() {
 		return bin8;
 	}
 	public void setBin8(String bin8) {
 		this.bin8 = bin8;
 	}
-	public String getPan_range() {
-		return pan_range;
+	public String getPan_range_debut() {
+		return pan_range_debut;
 	}
-	public void setPan_range(String pan_range) {
-		this.pan_range = pan_range;
+	public void setPan_range_debut(String pan_range_debut) {
+		this.pan_range_debut = pan_range_debut;
+	}
+	public String getPan_range_fin() {
+		return pan_range_fin;
+	}
+	public void setPan_range_fin(String pan_range_fin) {
+		this.pan_range_fin = pan_range_fin;
 	}
 	public String getStatus() {
 		return status;
@@ -68,11 +90,17 @@ public class Bin {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public String getRégion() {
-		return région;
+	public String getVolume() {
+		return volume;
 	}
-	public void setRégion(String région) {
-		this.région = région;
+	public void setVolume(String volume) {
+		this.volume = volume;
+	}
+	public String getRegion() {
+		return region;
+	}
+	public void setRegion(String region) {
+		this.region = region;
 	}
 	public String getPays() {
 		return pays;
@@ -104,25 +132,34 @@ public class Bin {
 	public void setP_v_c(String p_v_c) {
 		this.p_v_c = p_v_c;
 	}
-	Bin(Long id, String emetteur_banque, String bin8, String pan_range, String status, String région, String pays,
-			String compte, String platform, String funding_source, String p_v_c) {
+	Bin(Long id, String emetteur_banque, String code_banque, String bin8, String pan_range_debut, String pan_range_fin,
+			String status, String volume, String region, String pays, String compte, String platform,
+			String funding_source, String p_v_c, String partenaire) {
 		super();
 		this.id = id;
 		this.emetteur_banque = emetteur_banque;
+		this.code_banque = code_banque;
 		this.bin8 = bin8;
-		this.pan_range = pan_range;
+		this.pan_range_debut = pan_range_debut;
+		this.pan_range_fin = pan_range_fin;
 		this.status = status;
-		this.région = région;
+		this.volume = volume;
+		this.region = region;
 		this.pays = pays;
 		this.compte = compte;
 		this.platform = platform;
 		this.funding_source = funding_source;
 		this.p_v_c = p_v_c;
+		this.partenaire = partenaire;
 	}
 	Bin() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	
+	
+	
 	
 	
 	
