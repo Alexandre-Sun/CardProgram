@@ -2,16 +2,18 @@ package org.sid;
 
 import org.sid.api.bin.Bin;
 import org.sid.api.bin.BinRepository;
-import org.sid.api.bin.BinService;
 import org.sid.api.partenaire.Partenaire;
 import org.sid.api.partenaire.PartenaireRepository;
+import org.sid.api.partenaire.PartenaireService;
 import org.sid.api.utilisateur.UtilisateurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 @SpringBootApplication
 @Controller
@@ -22,12 +24,11 @@ public class CardprogramApplication {
 
 	@Autowired
 	PartenaireRepository partenaireRepository;
-	
+
 	@Autowired
 	BinRepository binRepository;
-	
 	@Autowired
-	private BinService binService;
+	PartenaireService partenaireService;
 
 	@RequestMapping("/template.html")
 	public String template() {
@@ -41,29 +42,37 @@ public class CardprogramApplication {
 		return "index";
 	}
 
+	/*@RequestMapping("/fichePartenaire")
+	public ModelAndView getPartenaire(@PathVariable("id") final Long id) {
+
+		partenaireService.getPartenaire(id);
+		
+		return new ModelAndView ("partenaires/fichePartenaire");
+	}
+	*/
+	
 	@RequestMapping("/fichePartenaire")
 	public String fichePartenaire() {
 
 		return "partenaires/fichePartenaire";
 	}
 
+	
 	@RequestMapping("/index")
 	public String indexhtml() {
 
 		return "index";
 	}
-	
+
 	@RequestMapping("/bin")
 	public String bin(Model model) {
 
 		Iterable<Bin> listBins = binRepository.findAll();
-		model.addAttribute("listBins", listBins);	
-		
-		
-		
+		model.addAttribute("listBins", listBins);
+
 		return "bins/bin";
 	}
-	
+
 	@RequestMapping("/gestionBin")
 	public String gestionBin() {
 
@@ -73,7 +82,7 @@ public class CardprogramApplication {
 	@RequestMapping("/contact")
 	public String contact() {
 
-		return "contact";
+		return "contacts/contact";
 	}
 
 	@RequestMapping("/informationsPersonnelles")
@@ -81,8 +90,6 @@ public class CardprogramApplication {
 
 		return "informationsPersonnelles";
 	}
-
-	
 
 	@RequestMapping("/partenaires")
 	public String partenaires(Model model) {
@@ -92,8 +99,6 @@ public class CardprogramApplication {
 
 		return "partenaires/partenaires";
 	}
-
-
 
 	public static void main(String[] args) {
 		SpringApplication.run(CardprogramApplication.class, args);

@@ -23,7 +23,5 @@ public class PartenaireController {
 	public ModelAndView deletePartenaire(@PathVariable("id") final Long id) {
 		partenaireService.deletePartenaire(id);
 		return new ModelAndView("redirect:/partenaires");
-	}
-
-	
+	}	
 }
