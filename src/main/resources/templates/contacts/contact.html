@@ -28,7 +28,7 @@
 								</center>
 
 
-								<form class="needs-validation" novalidate th:action="@{/creationMessage}" method="post">
+								<form class="needs-validation" th:action="@{/creationMessage}" method="post">
 									<br />
 									<!--Case nom prénom-->
 									<div class="form-group row">
@@ -46,7 +46,7 @@
 									<!--Case adresse mail-->
 									<div class="form-group row">
 										<div class="col-md-12">
-											<input type="text" class="form-control" placeholder="Adresse Mail"
+											<input type="email" class="form-control" placeholder="Adresse Mail"
 												name="adresse_mail" id="adresse_mail"
 												pattern="[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([_\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})"
 												required>
@@ -114,6 +114,5 @@
 		</div>
 	</main>
 </body>
-
 </html>
 </head>

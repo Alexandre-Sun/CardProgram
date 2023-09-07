@@ -24,4 +24,6 @@ public class PartenaireController {
 		partenaireService.deletePartenaire(id);
 		return new ModelAndView("redirect:/partenaires");
 	}	
+	
+	
 }

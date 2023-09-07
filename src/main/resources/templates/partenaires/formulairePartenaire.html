@@ -13,38 +13,36 @@
 			<!--Contenu-->
 
 			<Center>
-				<h2>Formulaire Partenaire</h2>
+				<h2>Création Partenaire</h2>
 			</Center>
 			<br>
 
 
 			<!-- ======= Hero Section ======= -->
-			<form class="needs-validation" novalidate th:action="@{/creationPartenaire}" method="post">
+			<form class="needs-validation" th:action="@{/creationPartenaire}" method="post">
 				<section id=incription class="d-flex align-items-center">
 					<div class="container center ">
-						<div class="section-title" data-aos="fade-up">
-							<h2>Creation Partenaire</h2>
-						</div>
+						
 
 						<div class="row">
 							<div class="col-lg-6">
 								<div class="form-group">
 									<label for="nom">Nom</label> <input type="text" class="form-control" name="nom"
-										id="nom" required th:value="${partenaire.nom}">
+										id="nom" th:value="${partenaire.nom}" required>
 									<div class="invalid-feedback">Valeur incorrecte ou non
 										saisie</div>
 								</div>
 								<div class="form-group">
-									<label for="numero_siret">numero_siret</label> <input type="text"
-										class="form-control" name="numero_siret" id="numero_siret" required
-										th:value="${partenaire.numero_siret}">
+									<label for="numero_siret">Numéro Siret</label> <input type="number"
+										class="form-control" name="numero_siret" id="numero_siret"
+										th:value="${partenaire.numero_siret}" minlength="14" maxlength="14" required>
 									<div class="invalid-feedback">Valeur incorrecte ou non
 										saisie</div>
 								</div>
 								<div class="form-group">
-									<label for="date_contrat">date_contrat</label> <input type="text"
-										name="date_contrat" class="form-control" id="date_contrat" required
-										th:value="${partenaire.date_contrat}">
+									<label for="date_contrat">Date Contrat</label> <input type="date"
+										name="date_contrat" class="form-control" id="date_contrat"
+										th:value="${partenaire.date_contrat}" required>
 									<div class="invalid-feedback">Valeur incorrecte ou non
 										saisie</div>
 								</div>
@@ -52,25 +50,25 @@
 							</div>
 							<div class="col-lg-6 ">
 								<div class="form-group">
-								<label>Mail</label>
+									<label>E-Mail</label>
 									<input type="adresse_mail" class="form-control"
 										pattern="[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([_\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})"
-										id="adresse_mail" name="adresse_mail" required
-										th:value="${partenaire.adresse_mail}">
+										id="adresse_mail" name="adresse_mail" th:value="${partenaire.adresse_mail}"
+										required>
 									<div class="invalid-feedback">Valeur incorrecte ou non
 										saisie</div>
 								</div>
 								<div class="form-group">
-									<label>siege_social</label> <input type="text" name="siege_social"
-										class="form-control" id="siege_social" required
-										th:value="${partenaire.siege_social}">
+									<label>Siège Social</label> <input type="text" name="siege_social"
+										class="form-control" id="siege_social" th:value="${partenaire.siege_social}"
+										required>
 									<div class="invalid-feedback">Valeur incorrecte ou non
 										saisie</div>
 								</div>
 								<div class="form-group">
-									<label>secteur_activite</label> <input type="text" name="secteur_activite"
-										class="form-control" id="secteur_activite" required
-										th:value="${partenaire.secteur_activite}">
+									<label>Secteur d'activité</label> <input type="text" name="secteur_activite"
+										class="form-control" id="secteur_activite"
+										th:value="${partenaire.secteur_activite}" required>
 									<div class="invalid-feedback">Valeur incorrecte ou non
 										saisie</div>
 								</div>

@@ -44,7 +44,7 @@
 						<td><span th:text="${partenaire.nom}"></span></td>
 						<td><span th:text="${partenaire.siege_social}"></span></td>
 						<td><span th:text="${partenaire.numero_siret}"></span></td>
-						<td><a href="/fichePartenaire">Show details</a></td>
+						<td><a th:href="@{/fichePartenaire/{id}(id=${partenaire.id})}">Show details</a></td>
 						<td><a style="color:red"
 								th:href="@{/partenaires/deletePartenaire/{id}(id=${partenaire.id})}">Supprimer</a></td>
 					</tr>
