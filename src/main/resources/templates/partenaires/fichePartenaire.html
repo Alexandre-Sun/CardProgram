@@ -35,6 +35,8 @@
 				<!--Fin de Photo , nom, équipe, poste-->
 
 				<!--Données Partenaire-->
+				
+				
 				<div class="col-lg-8">
 					<div class="card mb-4">
 						<div class="card-body">
@@ -43,7 +45,7 @@
 									<p class="mb-0">Nom</p>
 								</div>
 								<div class="col-sm-9">
-									<div class="text-muted mb-0"><!--<span th:value="${fichePartenaire.nom}"></span>--></div>
+									<div th:text="${fichePartenaire.nom}"></div>
 								</div>
 							</div>
 							<hr>
@@ -88,6 +90,7 @@
 						</div>
 					</div>
 				</div>
+				
 				<!--Fin de Données Partenaire-->
 			
 			</div>

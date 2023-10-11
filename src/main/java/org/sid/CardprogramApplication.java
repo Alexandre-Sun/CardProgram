@@ -95,7 +95,7 @@ public class CardprogramApplication {
 		Optional<Partenaire> fichePartenaire = partenaireService.getPartenaire(id);
 		model.addAttribute("fichePartenaire", fichePartenaire);
 
-		return ("/partenaires/fichePartenaire");
+		return ("partenaires/fichePartenaire");
 	}
 
 	public static void main(String[] args) {

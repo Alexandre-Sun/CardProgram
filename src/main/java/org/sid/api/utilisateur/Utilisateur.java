@@ -18,11 +18,27 @@ import lombok.ToString;
 @Table(name="utilisateurs")
 public class Utilisateur {
 	
-	public Long getId() {
-		return id;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	private String nom;
+	private String prenom;
+	private String civilite;
+	private String date_naissance;
+	private String adresse_mail;
+	private String adresse_postale;
+	private String mot_de_passe;
+	private String poste;
+	private String equipe;
+	private String role;
+	
+	Utilisateur() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 	Utilisateur(Long id, String nom, String prenom, String civilite, String date_naissance, String adresse_mail,
-			String adresse_postale, String mot_de_passe, String poste, String equipe) {
+			String adresse_postale, String mot_de_passe, String poste, String equipe, String role) {
 		super();
 		this.id = id;
 		this.nom = nom;
@@ -34,10 +50,10 @@ public class Utilisateur {
 		this.mot_de_passe = mot_de_passe;
 		this.poste = poste;
 		this.equipe = equipe;
+		this.role = role;
 	}
-	Utilisateur() {
-		super();
-		// TODO Auto-generated constructor stub
+	public Long getId() {
+		return id;
 	}
 	public void setId(Long id) {
 		this.id = id;
@@ -96,19 +112,12 @@ public class Utilisateur {
 	public void setEquipe(String equipe) {
 		this.equipe = equipe;
 	}
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	private String nom;
-	private String prenom;
-	private String civilite;
-	private String date_naissance;
-	private String adresse_mail;
-	private String adresse_postale;
-	private String mot_de_passe;
-	private String poste;
-	private String equipe;
-
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
 	
 	
 }

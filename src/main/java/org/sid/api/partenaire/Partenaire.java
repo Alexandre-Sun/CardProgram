@@ -21,25 +21,25 @@ public class Partenaire {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	public Long id;
 
 	@Column
-	private String nom;
+	public String nom;
 
 	@Column
-	private String numero_siret;
+	public String numero_siret;
 
 	@Column
-	private String date_contrat;
+	public String date_contrat;
 
 	@Column
-	private String adresse_mail;
+	public String adresse_mail;
 
 	@Column
-	private String siege_social;
+	public String siege_social;
 
 	@Column
-	private String secteur_activite;
+	public String secteur_activite;
 
 	public Long getId() {
 		return id;
