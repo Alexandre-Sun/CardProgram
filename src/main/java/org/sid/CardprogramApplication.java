@@ -1,6 +1,6 @@
 package org.sid;
 
-import java.util.Optional;
+
 
 import org.sid.api.bin.Bin;
 import org.sid.api.bin.BinRepository;
@@ -13,8 +13,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @SpringBootApplication
@@ -43,7 +42,6 @@ public class CardprogramApplication {
 
 		return "index";
 	}
-
 
 	@RequestMapping("/index")
 	public String indexhtml() {
@@ -83,20 +81,10 @@ public class CardprogramApplication {
 
 		Iterable<Partenaire> listPartenaires = partenaireRepository.findAll();
 		model.addAttribute("listPartenaires", listPartenaires);
-
-		model.addAttribute("partenaire", new Partenaire());
-
 		return "partenaires/partenaires";
 	}
-	
-	@GetMapping(value = "/fichePartenaire/{id}")
-	public String fichePartenaire(@PathVariable("id") final Long id, Model model) {
 
-		Optional<Partenaire> fichePartenaire = partenaireService.getPartenaire(id);
-		model.addAttribute("fichePartenaire", fichePartenaire);
 
-		return ("partenaires/fichePartenaire");
-	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(CardprogramApplication.class, args);
