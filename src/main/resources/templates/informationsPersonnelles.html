@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="template.html">
+
+<head>
+	<meta charset="utf-8">
+	<title>Informations Personnelles</title>
+</head>
+
+<body>
+	<main>
+		<div layout:fragment="content">
+			<!--Contenu-->
+
+			<Center><h2>Informations personnelles</h2></Center>
+
+			<!--Informations Personnelles-->
+			<div class="row" style="margin-top: 20px;">
+
+				<!--Photo , nom, équipe, poste-->
+				<div class="col-lg-4">
+					<div class="card mb-4">
+						<div class="card-body text-center">
+							<img src="https://media.istockphoto.com/id/1223671392/fr/vectoriel/photo-de-profil-par-d%C3%A9faut-avatar-photo-placeholder-illustration-de-vecteur.jpg?s=170667a&w=0&k=20&c=EqD6q8IUqwN_bgGec0UBhh3tk2Zuur5lezDDlQsGdPY="
+								alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+							<h5 class="my-3">Georges</h5>
+							<p class="text-muted mb-1">Product manager</p>
+							<p class="text-muted mb-4">Product Management</p>
+						</div>
+					</div>
+				</div>
+				<!--Fin de Photo , nom, équipe, poste-->
+
+				<!--Données personnelles-->
+				<div class="col-lg-8">
+					<div class="card mb-4">
+						<div class="card-body">
+							<div class="row">
+								<div class="col-sm-3">
+									<p class="mb-0">Nom</p>
+								</div>
+								<div class="col-sm-9">
+									<p class="text-muted mb-0">Pompidou</p>
+								</div>
+							</div>
+							<hr>
+							<div class="row">
+								<div class="col-sm-3">
+									<p class="mb-0">Prénom</p>
+								</div>
+								<div class="col-sm-9">
+									<p class="text-muted mb-0">Georges</p>
+								</div>
+							</div>
+							<hr>
+							<div class="row">
+								<div class="col-sm-3">
+									<p class="mb-0">Civilité</p>
+								</div>
+								<div class="col-sm-9">
+									<p class="text-muted mb-0">Homme</p>
+								</div>
+							</div>
+
+							<hr>
+							<div class="row">
+								<div class="col-sm-3">
+									<p class="mb-0">Date de Naissance</p>
+								</div>
+								<div class="col-sm-9">
+									<p class="text-muted mb-0">25 Décembre 1984</p>
+								</div>
+							</div>
+
+							<hr>
+							<div class="row">
+								<div class="col-sm-3">
+									<p class="mb-0">Adresse Mail</p>
+								</div>
+								<div class="col-sm-9">
+									<p class="text-muted mb-0">Exemple@gmail.com</p>
+								</div>
+							</div>
+							<hr>
+							<div class="row">
+								<div class="col-sm-3">
+									<p class="mb-0">Adresse Postale</p>
+								</div>
+								<div class="col-sm-9">
+									<p class="text-muted mb-0">France</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--Fin de Données personnelles-->
+
+			</div>
+			<!--Fin de Informations Personnelles-->
+
+
+			<!--Fin de Contenu-->
+		</div>
+	</main>
+</body>
+
+</html>
+</head>

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="template.html">
+
+<head>
+	<meta charset="utf-8">
+	<title>Bin</title>
+</head>
+
+<body>
+	<main>
+		<div layout:fragment="content">
+			<!--Contenu-->
+
+			<Center>
+				<h2>BIN</h2>
+			</Center>
+
+			<!--Première NavBar-->
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+					aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+
+
+					<!--Choix du clé de banque-->
+					<center>
+						<input type="radio" class="btn-check" name="options-banque" id="Oney-banque" autocomplete="off"
+							checked style="margin-left:10px;">
+						<label class="btn" for="Oney-banque">ONEY 12869</label>
+
+						<input type="radio" class="btn-check" name="options-banque" id="Xpollens-banque"
+							autocomplete="off" style="margin-left:30px;">
+						<label class="btn" for="Xpollens-banque"> XPOLLENS 16528</label>
+					</center>
+					<!--Fin de Choix du clé de banque-->
+
+
+				</div>
+			</nav>
+			<!--Fin de Première NavBar-->
+
+			<!--Deuxième NavBar-->
+			<nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-top:10px;">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+					aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+
+					<!--Choix Type Client-->
+					<center>
+						<input type="radio" class="btn-check" name="options-client" id="corporate-client"
+							autocomplete="off" checked style="margin-left:10px;" value="">
+						<label class="btn" for="corporate-client">CORPORATE</label>
+
+						<input type="radio" class="btn-check" name="options-client" id="business-client"
+							autocomplete="off" style="margin-left:30px;" value="">
+						<label class="btn" for="business-client">BUSINESS</label>
+
+						<input type="radio" class="btn-check" name="options-client" id="consumer-client"
+							autocomplete="on" style="margin-left:30px;" value="">
+						<label class="btn" for="consumer-client">CONSUMER</label>
+					</center>
+					<!--Fin de Choix Type Client-->
+
+				</div>
+			</nav>
+			<!--Fin de Deuxième NavBar-->
+
+			<!--Tableau de Filtrage-->
+			<table class="table table-bordered" style="margin-top:10px;">
+				<thead>
+					<th colspan="4">
+						<CENTER>ONEY 12869</CENTER>
+					</th>
+				</thead>
+				<tbody>
+
+					<tr>
+						<th scope="row">DEBIT IMMEDIAT</th>
+						<td>
+
+							<!-- Bouton de 'Debit Immediat All Details' -->
+							<h5 class="mb-0">
+								<button class="btn btn-link" type="button" data-toggle="collapse"
+									data-target="#collapseDebitImmediatAll" aria-expanded="true"
+									aria-controls="collapseDebitImmediatAll">
+									All Details
+								</button>
+							</h5>
+							<!--Fin de Bouton-->
+
+
+						</td>
+
+						<td>
+
+							<form action="#">
+								<select name="DebitImmediatRegion" id="DebitImmediatRegion" onchange="myFunction()">
+									<option value="">Région</option>
+									<option value="Europe">Europe</option>
+									<option value="Asie">Asie</option>
+								</select>
+							</form>
+
+
+						</td>
+
+						<td>
+
+							<form action="#">
+								<select name="DebitImmediatPays" id="DebitImmediatPays" onchange="myFunction()">
+									<option value="">Pays</option>
+									<option value="France">France</option>
+									<option value="Belgique">Belgique</option>
+								</select>
+							</form>
+
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">DEBIT DIFFERE</th>
+						<td>
+
+							<!-- Bouton de 'Debit Differe All Details' -->
+							<h5 class="mb-0">
+								<button class="btn btn-link" type="button" data-toggle="collapse"
+									data-target="#collapseDebitDiffereAll" aria-expanded="false"
+									aria-controls="collapseDebitDiffereAll">
+									All Details
+								</button>
+							</h5>
+							<!--Fin de Bouton-->
+
+						</td>
+
+						<td>
+
+							<form action="#">
+								<select name="DebitDiffereRegion" id="DebitDiffereRegion" onchange="myFunction()">
+									<option value="">Région</option>
+									<option value="Europe">Europe</option>
+									<option value="Asie">Asie</option>
+								</select>
+							</form>
+
+
+
+						</td>
+
+						<td>
+
+							<form action="#">
+								<select name="DebitDifferePays" id="DebitDifferePays" onchange="myFunction()">
+									<option value="">Pays</option>
+									<option value="France">France</option>
+									<option value="Belgique">Belgique</option>
+								</select>
+							</form>
+
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">PREPAID</th>
+						<td>
+
+							<!-- Bouton de 'Prepaid All Details' -->
+							<h5 class="mb-0">
+								<button class="btn btn-link" type="button" data-toggle="collapse"
+									data-target="#collapsePrepaidAll" aria-expanded="true"
+									aria-controls="collapsePrepaidAll">
+									All Details
+								</button>
+							</h5>
+							<!--Fin de Bouton-->
+
+						</td>
+
+						<td>
+
+							<form action="#">
+								<select name="PrepaidRegion" id="PrepaidRegion" onchange="myFunction()">
+									<option value="">Région</option>
+									<option value="Europe">Europe</option>
+									<option value="Asie">Asie</option>
+								</select>
+							</form>
+
+						</td>
+
+						<td>
+
+							<form action="#">
+								<select name="PrepaidPays" id="PrepaidPays" onchange="myFunction()">
+									<option value="">Pays</option>
+									<option value="France">France</option>
+									<option value="Belgique">Belgique</option>
+
+								</select>
+							</form>
+
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<!--Fin de Tableau de Filtrage-->
+
+
+
+
+			<!-- Accordion TOUS LES ALL DETAILS-->
+
+			<!-- Accordion de 'ALL DEBIT IMMEDIAT' -->
+			<div class="accordion" id="accordionDebitImmediatAll">
+				<div class="card">
+					<div id="collapseDebitImmediatAll" class="collapse" aria-labelledby="headingDebitImmediatAll"
+						data-parent="#accordionDebitImmediatAll">
+						<div class="card-body">
+
+							<!--Contenu Accordion-->
+
+							<center>
+								<h3>ALL DETAILS DEBIT IMMEDIAT</h3>
+							</center>
+
+							<table class="table table-bordered">
+								<thead>
+									<th colspan="9">
+										<CENTER>BIN 1234567</CENTER>
+									</th>
+									<tr>
+										<th scope="col">BIN 8 POS</th>
+										<th scope="col">PARTENAIRE</th>
+										<th scope="col">STATUS</th>
+										<th scope="col">PAN RANGE</th>
+										<th scope="col">VOLUME</th>
+										<th scope="col">PAYS/REGION</th>
+										<th scope="col">P/V</th>
+										<th scope="col">MONNAIE</th>
+										<th scope="col">GERER</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="bin: ${listBins}" th:if="${bin.funding_source == 'Débit Immédiat'}">
+										<td><span th:text="${bin.bin8}"></td>
+										<td><span th:text="${bin.partenaire}"></td> 
+										<td><span th:text="${bin.status}"></td>
+										<td><span th:text="${bin.pan_range_debut} +' - '+${bin.pan_range_fin}"></td>
+										<td><span th:text="${bin.volume}"></td>
+										<td><span th:text="${bin.pays} +' , '+ ${bin.region}"></td>
+										<td><span th:text="${bin.p_v_c}"></td>
+										<td><span th:text="${bin.compte}"></td>
+										<td><a href="/gestionBin"><button>Gérer</button></a></td>
+									</tr>
+
+
+								</tbody>
+							</table>
+							<!--FIN de Contenu Accordion-->
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--Fin de Accordion-->
+
+			<!-- Accordion de 'ALL DEBIT DIFFERE' -->
+			<div class="accordion" id="accordionDebitDiffereAll">
+				<div class="card">
+					<div id="collapseDebitDiffereAll" class="collapse" aria-labelledby="headingDebitDiffereAll"
+						data-parent="#accordionDebitDiffereAll">
+						<div class="card-body">
+
+							<center>
+								<h3>ALL DETAILS DEBIT DIFFERE</h3>
+							</center>
+
+							<table class="table table-bordered">
+								<thead>
+									<th colspan="9">
+										<CENTER>BIN</CENTER>
+									</th>
+									<tr>
+										<th scope="col">BIN 8 POS</th>
+										<th scope="col">PARTENAIRE</th>
+										<th scope="col">STATUS</th>
+										<th scope="col">PAN RANGE</th>
+										<th scope="col">VOLUME</th>
+										<th scope="col">PAYS/REGION</th>
+										<th scope="col">P/V</th>
+										<th scope="col">MONNAIE</th>
+										<th scope="col">GERER</th>
+									</tr>
+								</thead>
+								<tbody>
+
+
+
+									<tr th:each="bin: ${listBins}" th:if="${bin.funding_source == 'Débit Différé'}">
+										<td><span th:text="${bin.bin8}"></td>
+										<td><span th:text="${bin.partenaire}"></td>
+										<td><span th:text="${bin.status}"></td>
+										<td><span th:text="${bin.pan_range_debut} +' - '+${bin.pan_range_fin}"></td>
+										<td><span th:text="${bin.volume}"></td>
+										<td><span th:text="${bin.pays} +' , '+ ${bin.region}"></td>
+										<td><span th:text="${bin.p_v_c}"></td>
+										<td><span th:text="${bin.compte}"></td>
+										<td><a href="/gestionBin"><button>Gérer</button></a></td>
+									</tr>
+
+
+
+								</tbody>
+							</table>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--Fin de Accordion-->
+
+			<!-- Accordion de 'ALL PREPAID' -->
+			<div class="accordion" id="accordionPrepaidAll">
+				<div class="card">
+					<div id="collapsePrepaidAll" class="collapse" aria-labelledby="headingPrepaidAll"
+						data-parent="#accordionPrepaidAll">
+						<div class="card-body">
+
+							<center>
+								<h3>ALL DETAILS PREPAID</h3>
+							</center>
+
+							<table class="table table-bordered">
+								<thead>
+									<th colspan="9">
+										<CENTER>BIN </CENTER>
+									</th>
+									<tr>
+										<th scope="col">BIN 8 POS</th>
+										<th scope="col">PARTENAIRE</th>
+										<th scope="col">STATUS</th>
+										<th scope="col">PAN RANGE</th>
+										<th scope="col">VOLUME</th>
+										<th scope="col">PAYS/REGION</th>
+										<th scope="col">P/V</th>
+										<th scope="col">MONNAIE</th>
+										<th scope="col">GERER</th>
+									</tr>
+								</thead>
+								<tbody>
+
+
+									<tr th:each="bin: ${listBins}" th:if="${bin.funding_source == 'Prepaid'}">
+										<td><span th:text="${bin.bin8}"></td>
+										<td><span th:text="${bin.partenaire}"></td>
+										<td><span th:text="${bin.status}"></td>
+										<td><span th:text="${bin.pan_range_debut} +' - '+${bin.pan_range_fin}"></td>
+										<td><span th:text="${bin.volume}"></td>
+										<td><span th:text="${bin.pays} +' , '+ ${bin.region}"></td>
+										<td><span th:text="${bin.p_v_c}"></td>
+										<td><span th:text="${bin.compte}"></td>
+										<td><a href="/gestionBin"><button>Gérer</button></a></td>
+									</tr>
+
+								</tbody>
+							</table>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--Fin de Accordion-->
+
+			<!--Fin de Accordion TOUS LES ALL DETAILS-->
+
+
+
+
+			<!--Collapses activés par les SELECT-->
+			<div id="accordionDebitImmediatRegion"></div>
+			<div id="accordionDebitImmediatPays"></div>
+
+			<div id="accordionDebitDiffereRegion"></div>
+			<div id="accordionDebitDifferePays"></div>
+
+			<div id="accordionPrepaidRegion"></div>
+			<div id="accordionPrepaidPays"></div>
+
+			<script>
+				function myFunction() {
+					//Debit Immediat Region
+					var valeur = document.getElementById("DebitImmediatRegion").value;
+					if (valeur == "Europe") {
+						document.getElementById("accordionDebitImmediatRegion").innerHTML = '<table class="table table-bordered"><thead><th colspan="9"><CENTER>BIN Debit Immediat Europe</CENTER></th><tr><th scope="col">BIN 8 POS</th><th scope="col">PARTENAIRE</th><th scope="col">STATUS</th><th scope="col">RANGE</th><th scope="col">VOLUME</th><th scope="col">PAYS</th><th scope="col">P/V</th><th scope="col">MONNAIE</th><th scope="col">GERER</th></tr></thead><tbody></tbody></table>';
+					}
+					else if (valeur == "Asie") {
+						document.getElementById("accordionDebitImmediatRegion").innerHTML = '<table class="table table-bordered"><thead><th colspan="9"><CENTER>BIN Debit Immediat Asie</CENTER></th><tr><th scope="col">BIN 8 POS</th><th scope="col">PARTENAIRE</th><th scope="col">STATUS</th><th scope="col">RANGE</th><th scope="col">VOLUME</th><th scope="col">PAYS</th><th scope="col">P/V</th><th scope="col">MONNAIE</th><th scope="col">GERER</th></tr></thead><tbody></tbody></table>';
+					}
+					else if (valeur == "") {
+						document.getElementById("accordionDebitImmediatRegion").innerHTML = '';
+					}
+
+					//Debit Immediat Pays
+					var valeur2 = document.getElementById("DebitImmediatPays").value;
+					if (valeur2 == "France") {
+						document.getElementById("accordionDebitImmediatPays").innerHTML = '<table class="table table-bordered"><thead><th colspan="9"><CENTER>BIN Debit Immediat France</CENTER></th><tr><th scope="col">BIN 8 POS</th><th scope="col">PARTENAIRE</th><th scope="col">STATUS</th><th scope="col">RANGE</th><th scope="col">VOLUME</th><th scope="col">REGION</th><th scope="col">P/V</th><th scope="col">MONNAIE</th><th scope="col">GERER</th></tr></thead><tbody>  </tbody></table>';
+					}
+					
+					
+					else if (valeur2 == "Belgique") {
+						document.getElementById("accordionDebitImmediatPays").innerHTML = '<table class="table table-bordered"><thead><th colspan="9"><CENTER>BIN Debit Immediat Belgique</CENTER></th><tr><th scope="col">BIN 8 POS</th><th scope="col">PARTENAIRE</th><th scope="col">STATUS</th><th scope="col">RANGE</th><th scope="col">VOLUME</th><th scope="col">REGION</th><th scope="col">P/V</th><th scope="col">MONNAIE</th><th scope="col">GERER</th></tr></thead><tbody></tbody></table>';
+					}
+					else if (valeur2 == "") {
+						document.getElementById("accordionDebitImmediatPays").innerHTML = '';
+					}
+
+					//Debit Differe Region
+					var valeur3 = document.getElementById("DebitDiffereRegion").value;
+					if (valeur3 == "Europe") {
+						document.getElementById("accordionDebitDiffereRegion").innerHTML = '<table class="table table-bordered"><thead><th colspan="9"><CENTER>BIN Debit Differe Europe</CENTER></th><tr><th scope="col">BIN 8 POS</th><th scope="col">PARTENAIRE</th><th scope="col">STATUS</th><th scope="col">RANGE</th><th scope="col">VOLUME</th><th scope="col">PAYS</th><th scope="col">P/V</th><th scope="col">MONNAIE</th><th scope="col">GERER</th></tr></thead><tbody></tbody></table>';
+					}
+					else if (valeur3 == "Asie") {
+						document.getElementById("accordionDebitDiffereRegion").innerHTML = '<table class="table table-bordered"><thead><th colspan="9"><CENTER>BIN Debit Differe Asie</CENTER></th><tr><th scope="col">BIN 8 POS</th><th scope="col">PARTENAIRE</th><th scope="col">STATUS</th><th scope="col">RANGE</th><th scope="col">VOLUME</th><th scope="col">PAYS</th><th scope="col">P/V</th><th scope="col">MONNAIE</th><th scope="col">GERER</th></tr></thead><tbody></tbody></table>';
+					}
+					else if (valeur3 == "") {
+						document.getElementById("accordionDebitDiffereRegion").innerHTML = '';
+					}
+
+					//Debit Differe Pays
+					var valeur4 = document.getElementById("DebitDifferePays").value;
+					if (valeur4 == "France") {
+						document.getElementById("accordionDebitDifferePays").innerHTML = '<table class="table table-bordered"><thead><th colspan="9"><CENTER>BIN Debit Differe France</CENTER></th><tr><th scope="col">BIN 8 POS</th><th scope="col">PARTENAIRE</th><th scope="col">STATUS</th><th scope="col">RANGE</th><th scope="col">VOLUME</th><th scope="col">REGION</th><th scope="col">P/V</th><th scope="col">MONNAIE</th><th scope="col">GERER</th></tr></thead><tbody></tbody></table>';
+					}
+					else if (valeur4 == "Belgique") {
+						document.getElementById("accordionDebitDifferePays").innerHTML = '<table class="table table-bordered"><thead><th colspan="9"><CENTER>BIN Debit Differe Belgique</CENTER></th><tr><th scope="col">BIN 8 POS</th><th scope="col">PARTENAIRE</th><th scope="col">STATUS</th><th scope="col">RANGE</th><th scope="col">VOLUME</th><th scope="col">REGION</th><th scope="col">P/V</th><th scope="col">MONNAIE</th><th scope="col">GERER</th></tr></thead><tbody></tbody></table>';
+					}
+					else if (valeur4 == "") {
+						document.getElementById("accordionDebitDifferePays").innerHTML = '';
+					}
+
+					//Prepaid Region
+					var valeur5 = document.getElementById("PrepaidRegion").value;
+					if (valeur5 == "Europe") {
+						document.getElementById("accordionPrepaidRegion").innerHTML = '<table class="table table-bordered"><thead><th colspan="9"><CENTER>BIN Prepaid Europe</CENTER></th><tr><th scope="col">BIN 8 POS</th><th scope="col">PARTENAIRE</th><th scope="col">STATUS</th><th scope="col">RANGE</th><th scope="col">VOLUME</th><th scope="col">PAYS</th><th scope="col">P/V</th><th scope="col">MONNAIE</th><th scope="col">GERER</th></tr></thead><tbody></tbody></table>';
+					}
+					else if (valeur5 == "Asie") {
+						document.getElementById("accordionPrepaidRegion").innerHTML = '<table class="table table-bordered"><thead><th colspan="9"><CENTER>BIN Prepaid Asie</CENTER></th><tr><th scope="col">BIN 8 POS</th><th scope="col">PARTENAIRE</th><th scope="col">STATUS</th><th scope="col">RANGE</th><th scope="col">VOLUME</th><th scope="col">PAYS</th><th scope="col">P/V</th><th scope="col">MONNAIE</th><th scope="col">GERER</th></tr></thead><tbody></tbody></table>';
+					}
+					else if (valeur5 == "") {
+						document.getElementById("accordionPrepaidRegion").innerHTML = '';
+					}
+
+					//Prepaid Pays
+					var valeur6 = document.getElementById("PrepaidPays").value;
+					if (valeur6 == "France") {
+						document.getElementById("accordionPrepaidPays").innerHTML = '<table class="table table-bordered"><thead><th colspan="9"><CENTER>BIN Prepaid France</CENTER></th><tr><th scope="col">BIN 8 POS</th><th scope="col">PARTENAIRE</th><th scope="col">STATUS</th><th scope="col">RANGE</th><th scope="col">VOLUME</th><th scope="col">REGION</th><th scope="col">P/V</th><th scope="col">MONNAIE</th><th scope="col">GERER</th></tr></thead><tbody></tbody></table>';
+					}
+					else if (valeur6 == "Belgique") {
+						document.getElementById("accordionPrepaidPays").innerHTML = '<table class="table table-bordered"><thead><th colspan="9"><CENTER>BIN Prepaid Belgique</CENTER></th><tr><th scope="col">BIN 8 POS</th><th scope="col">PARTENAIRE</th><th scope="col">STATUS</th><th scope="col">RANGE</th><th scope="col">VOLUME</th><th scope="col">REGION</th><th scope="col">P/V</th><th scope="col">MONNAIE</th><th scope="col">GERER</th></tr></thead><tbody></tbody></table>';
+					}
+					else if (valeur6 == "") {
+						document.getElementById("accordionPrepaidPays").innerHTML = '';
+					}
+
+				}
+			</script>
+			<!--Fin de Collaspes activés par les SELECT-->
+
+
+
+
+
+
+			<!--Fin de Contenu-->
+		</div>
+	</main>
+</body>
+
+</html>
+</head>

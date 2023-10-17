@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="template.html">
+
+<head>
+	<meta charset="utf-8">
+	<title>Partenaires</title>
+</head>
+
+<body>
+	<main>
+		<div layout:fragment="content">
+			<!--Contenu-->
+
+			<Center>
+				<h2>Partenaires</h2>
+			</Center>
+
+			<!--Tableau des partenaires-->
+			<table class="table table-bordered" style="margin-top:10px;">
+				<thead>
+					<th colspan="6">
+						<CENTER>Liste des partenaires</CENTER>
+					</th>
+				</thead>
+				<tbody>
+
+					<tr>
+						<th scope="row">ID</th>
+						<th>Partenaire</th>
+						<th>Localisation</th>
+						<th>Numéro Siret</th>
+						<th>Informations</th>
+						<th>Gérer</th>
+					</tr>
+					<tr th:if="${listPartenaires.empty}">
+						<td colspan="6">
+							<CENTER>Aucun partenaire en base de données</CENTER>
+						</td>
+					</tr>
+
+					<tr th:each="partenaire: ${listPartenaires}">
+						<td scope="row"><span th:text="${partenaire.id}"></span></td>
+						<td><span th:text="${partenaire.nom}"></span></td>
+						<td><span th:text="${partenaire.siege_social}"></span></td>
+						<td><span th:text="${partenaire.numero_siret}"></span></td>
+						<td><a th:href="@{/partenaires/fichePartenaire/{id}(id=${partenaire.id})}">Show details</a></td>
+						<td><a style="color:red"
+								th:href="@{/partenaires/deletePartenaire/{id}(id=${partenaire.id})}">Supprimer</a></td>
+					</tr>
+
+				</tbody>
+			</table>
+			<!--Fin de Tableau des partenaires-->
+
+			<button type="button" role="button" class="btn btn-outline-warning"> <a href="/creationPartenaire">Créer
+					Partenaire</a></button>
+
+
+			<!--Fin de Contenu-->
+		</div>
+	</main>
+</body>
+
+</html>
+</head>
